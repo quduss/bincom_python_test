@@ -155,7 +155,7 @@ class ColorAnalyzer:
         """
         Generates random 4 digits number of 0s and 1s and convert to base 10
         """
-        # Generate random 4-digit binary number
+        # Generate random 4-digit binary in digits and strings
         binary_digits = [random.choice(['0', '1']) for _ in range(4)]
         binary_string = ''.join(binary_digits)
     
