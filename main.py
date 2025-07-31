@@ -163,3 +163,24 @@ class ColorAnalyzer:
         decimal_value = int(binary_string, 2)
     
         return binary_string, decimal_value
+
+    def fibonacci_sum(n):
+        """
+        Returns the sum of the first 50 fibonacci sequence
+        """
+        if n <= 0:
+            return 0
+        elif n == 1:
+            return 0
+        elif n == 2:
+            return 1
+    
+        fib_sum = 1
+        prev1, prev2 = 0, 1
+    
+        for i in range(3, n + 1):
+            current = prev1 + prev2
+            fib_sum += current
+            prev1, prev2 = prev2, current
+    
+        return fib_sum
