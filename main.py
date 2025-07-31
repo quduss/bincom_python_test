@@ -54,3 +54,9 @@ class ColorAnalyzer:
         Since colors are categorical type of data, the mode (most frequent) is returned as the mean.
         """
         return self._get_most_common_color()
+    
+    def get_most_worn_color(self):
+        """
+        Returns the color that is mostly worn throughout the week?
+        """
+        return self._get_most_common_color()
