@@ -60,3 +60,12 @@ class ColorAnalyzer:
         Returns the color that is mostly worn throughout the week?
         """
         return self._get_most_common_color()
+    
+    def get_median_color(self):
+        """
+        Returns the median color after sorting the colors alphabetically
+        """
+        sorted_colors = sorted(self.color_data)
+        n = len(sorted_colors)
+        median_index = n // 2
+        return sorted_colors[median_index]
