@@ -1,4 +1,5 @@
 import statistics
+import psycopg2
 
 
 ACTUAL_COLOR_DATA = [
@@ -87,3 +88,12 @@ class ColorAnalyzer:
         red_count = self.color_counts.get('RED', 0)
         total_count = len(self.color_data)
         return red_count / total_count
+    
+    def save_to_postgresql(self, connection_params):
+        """
+        Saves the colours and their frequencies(color_counts) in postgresql database
+        """
+        try:
+            # Connect to PostgreSQL
+            conn = psycopg2.connect(**connection_params)
+            cur = conn.cursor()
