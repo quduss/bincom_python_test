@@ -48,3 +48,9 @@ class ColorAnalyzer:
                 max_count = count
                 most_common = color
         return most_common
+
+    def get_mean_color(self):
+        """
+        Since colors are categorical type of data, the mode (most frequent) is returned as the mean.
+        """
+        return self._get_most_common_color()
