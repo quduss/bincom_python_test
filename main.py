@@ -125,3 +125,7 @@ class ColorAnalyzer:
             
             print("Color frequencies saved successfully to postgres database")
             return True
+
+        except Exception as e:
+            print("Error occured while saving to postgres: " + str(e))
+            return False
