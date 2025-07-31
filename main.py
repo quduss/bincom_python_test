@@ -106,3 +106,4 @@ class ColorAnalyzer:
                 frequency INTEGER NOT NULL
             );
             """
+            cur.execute(create_table_query)
