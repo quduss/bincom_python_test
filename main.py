@@ -1,3 +1,6 @@
+import statistics
+
+
 ACTUAL_COLOR_DATA = [
     # Monday
     'GREEN', 'YELLOW', 'GREEN', 'BROWN', 'BLUE', 'PINK', 'BLUE', 'YELLOW', 'ORANGE', 'CREAM',
@@ -69,3 +72,18 @@ class ColorAnalyzer:
         n = len(sorted_colors)
         median_index = n // 2
         return sorted_colors[median_index]
+
+    def get_color_variance(self):
+        """
+        calculate the variance based on frequency distribution.
+        """
+        frequencies = list(self.color_counts.values())
+        return statistics.variance(frequencies)
+    
+    def get_red_probability(self):
+        """
+        Probability that a randomly chosen color is red
+        """
+        red_count = self.color_counts.get('RED', 0)
+        total_count = len(self.color_data)
+        return red_count / total_count
