@@ -38,3 +38,13 @@ class ColorAnalyzer:
             else:
                 counts[color] = 1
         return counts
+
+    def _get_most_common_color(self):
+        """Get the most frequent color"""
+        max_count = 0
+        most_common = ""
+        for color, count in self.color_counts.items():
+            if count > max_count:
+                max_count = count
+                most_common = color
+        return most_common
