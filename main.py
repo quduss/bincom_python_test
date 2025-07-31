@@ -130,82 +130,83 @@ class ColorAnalyzer:
         except Exception as e:
             print("Error occured while saving to postgres: " + str(e))
             return False
-    
-    def recursive_search(arr, target, start=0, end=None):
-        """
-        Recursive search algorithm to search for the given number in a list
-        Returns the index of the target number, or -1 if not found.
-        """
-        if end is None:
-            end = len(arr) - 1
-    
-        if start > end:
-            return -1
-    
-        mid = (start + end) // 2
-    
-        if arr[mid] == target:
-            return mid
-        elif arr[mid] > target:
-            return recursive_search(arr, target, start, mid - 1)
-        else:
-            return recursive_search(arr, target, mid + 1, end)
-    
-    def generate_random_binary_and_convert():
-        """
-        Generates random 4 digits number of 0s and 1s and convert to base 10
-        """
-        # Generate random 4-digit binary in digits and strings
-        binary_digits = [random.choice(['0', '1']) for _ in range(4)]
-        binary_string = ''.join(binary_digits)
-    
-        # Convert to base 10
-        decimal_value = int(binary_string, 2)
-    
-        return binary_string, decimal_value
 
-    def fibonacci_sum(n):
-        """
-        Returns the sum of the first 50 fibonacci sequence
-        """
-        if n <= 0:
-            return 0
-        elif n == 1:
-            return 0
-        elif n == 2:
-            return 1
+
+def recursive_search(arr, target, start=0, end=None):
+    """
+    Recursive search algorithm to search for the given number in a list
+    Returns the index of the target number, or -1 if not found.
+    """
+    if end is None:
+        end = len(arr) - 1
+
+    if start > end:
+        return -1
+
+    mid = (start + end) // 2
+
+    if arr[mid] == target:
+        return mid
+    elif arr[mid] > target:
+        return recursive_search(arr, target, start, mid - 1)
+    else:
+        return recursive_search(arr, target, mid + 1, end)
+
+
+def generate_random_binary_and_convert():
+    """
+    Generates random 4 digits number of 0s and 1s and convert to base 10
+    """
+    # Generate random 4-digit binary in digits and strings
+    binary_digits = [random.choice(['0', '1']) for _ in range(4)]
+    binary_string = ''.join(binary_digits)
+
+    # Convert to base 10
+    decimal_value = int(binary_string, 2)
+
+    return binary_string, decimal_value
+
+def fibonacci_sum(n):
+    """
+    Returns the sum of the first 50 fibonacci sequence
+    """
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 0
+    elif n == 2:
+        return 1
+
+    fib_sum = 1 # Sum of first two fibonacci numbers (0 + 1)
+    prev1, prev2 = 0, 1
+
+    for i in range(3, n + 1):
+        current = prev1 + prev2
+        fib_sum += current
+        prev1, prev2 = prev2, current
+
+    return fib_sum
     
-        fib_sum = 1 # Sum of first two fibonacci numbers (0 + 1)
-        prev1, prev2 = 0, 1
+def main():
+    """Main function to run all tests"""
+    print("BINCOM ICT SOLUTIONS - PYTHON TECHNICAL INTERVIEW TEST")
+    # Initialize color analyzer with actual HTML data
+    analyzer = ColorAnalyzer(ACTUAL_COLOR_DATA)
+    # Question 1
+    print(f"1. Mean color (mode): {analyzer.get_mean_color()}")
     
-        for i in range(3, n + 1):
-            current = prev1 + prev2
-            fib_sum += current
-            prev1, prev2 = prev2, current
+    # Question 2  
+    print(f"2. Most worn color: {analyzer.get_most_worn_color()}")
     
-        return fib_sum
+    # Question 3
+    print(f"3. Median color: {analyzer.get_median_color()}")
     
-    def main():
-        """Main function to run all tests"""
-        print("BINCOM ICT SOLUTIONS - PYTHON TECHNICAL INTERVIEW TEST")
-        # Initialize color analyzer with actual HTML data
-        analyzer = ColorAnalyzer(ACTUAL_COLOR_DATA)
-        # Question 1
-        print(f"1. Mean color (mode): {analyzer.get_mean_color()}")
-        
-        # Question 2  
-        print(f"2. Most worn color: {analyzer.get_most_worn_color()}")
-        
-        # Question 3
-        print(f"3. Median color: {analyzer.get_median_color()}")
-        
-        # Question 4 (BONUS)
-        print(f"4. Variance of colors: {analyzer.get_color_variance():.2f}")
-        
-        # Question 5 (BONUS)
-        red_prob = analyzer.get_red_probability()
-        print(f"5. Probability of red color: {red_prob:.4f} ({red_prob * 100:.2f}%)")
+    # Question 4 (BONUS)
+    print(f"4. Variance of colors: {analyzer.get_color_variance():.2f}")
     
+    # Question 5 (BONUS)
+    red_prob = analyzer.get_red_probability()
+    print(f"5. Probability of red color: {red_prob:.4f} ({red_prob * 100:.2f}%)")
 
 
 
