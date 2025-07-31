@@ -97,3 +97,12 @@ class ColorAnalyzer:
             # Connect to PostgreSQL
             conn = psycopg2.connect(**connection_params)
             cur = conn.cursor()
+
+            # Create table if it doesn't exist
+            create_table_query = """
+            CREATE TABLE IF NOT EXISTS color_frequencies (
+                id SERIAL PRIMARY KEY,
+                color VARCHAR(10) NOT NULL,
+                frequency INTEGER NOT NULL
+            );
+            """
