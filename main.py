@@ -247,7 +247,16 @@ def main():
         except KeyboardInterrupt:
             break
 
-
+    # Question 8 - Random binary to decimal
+    print(f"\n8. RANDOM BINARY TO DECIMAL:")
+    for i in range(5):  # Generate 5 examples
+        binary, decimal = generate_random_binary_and_convert()
+        print(f"   Binary: {binary} → Decimal: {decimal}")
+    
+    # Question 9 - Fibonacci sum
+    print(f"\n9. SUM OF FIRST 50 FIBONACCI NUMBERS:")
+    fib_sum = fibonacci_sum(50)
+    print(f"   Sum = {fib_sum:,}")
 
 if __name__ == "__main__":
     main()
