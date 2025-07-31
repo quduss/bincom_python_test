@@ -225,6 +225,28 @@ def main():
     else:
         print("Failed to save to PostgreSQL")
 
+    # Question 7 (BONUS) - Recursive search
+    print(f"\n7. RECURSIVE SEARCH DEMONSTRATION:")
+    test_list = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+    print(f"   Searching in sorted list: {test_list}")
+    
+    while True:
+        try:
+            search_num = input("   Enter a number to search for (or 'skip' to continue): ")
+            if search_num.lower() == 'skip':
+                break
+            search_num = int(search_num)
+            result = recursive_search(test_list, search_num)
+            if result != -1:
+                print(f"   ✓ Number {search_num} found at index {result}")
+            else:
+                print(f"   ✗ Number {search_num} not found in the list")
+            break
+        except ValueError:
+            print("   Please enter a valid number or 'skip'")
+        except KeyboardInterrupt:
+            break
+
 
 
 if __name__ == "__main__":
