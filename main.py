@@ -24,5 +24,17 @@ class ColorAnalyzer:
     """Class to analyze color data from staff dress colors"""
     
     def __init__(self, color_data):
+        """Class to analyze colors"""
+    
         self.color_data = [color.upper().strip() for color in color_data]
         self.color_counts = self._count_colors()
+    
+    def _count_colors(self):
+        """Counts the frequency of each color using a dictionary"""
+        counts = {}
+        for color in self.color_data:
+            if color in counts:
+                counts[color] += 1
+            else:
+                counts[color] = 1
+        return counts
