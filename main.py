@@ -175,7 +175,7 @@ class ColorAnalyzer:
         elif n == 2:
             return 1
     
-        fib_sum = 1
+        fib_sum = 1 # Sum of first two fibonacci numbers (0 + 1)
         prev1, prev2 = 0, 1
     
         for i in range(3, n + 1):
@@ -184,3 +184,30 @@ class ColorAnalyzer:
             prev1, prev2 = prev2, current
     
         return fib_sum
+    
+    def main():
+        """Main function to run all tests"""
+        print("BINCOM ICT SOLUTIONS - PYTHON TECHNICAL INTERVIEW TEST")
+        # Initialize color analyzer with actual HTML data
+        analyzer = ColorAnalyzer(ACTUAL_COLOR_DATA)
+        # Question 1
+        print(f"1. Mean color (mode): {analyzer.get_mean_color()}")
+        
+        # Question 2  
+        print(f"2. Most worn color: {analyzer.get_most_worn_color()}")
+        
+        # Question 3
+        print(f"3. Median color: {analyzer.get_median_color()}")
+        
+        # Question 4 (BONUS)
+        print(f"4. Variance of colors: {analyzer.get_color_variance():.2f}")
+        
+        # Question 5 (BONUS)
+        red_prob = analyzer.get_red_probability()
+        print(f"5. Probability of red color: {red_prob:.4f} ({red_prob * 100:.2f}%)")
+    
+
+
+
+if __name__ == "__main__":
+    main()
