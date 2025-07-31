@@ -19,3 +19,10 @@ ACTUAL_COLOR_DATA = [
     'GREEN', 'WHITE', 'GREEN', 'BROWN', 'BLUE', 'BLUE', 'BLACK', 'WHITE', 'ORANGE', 'RED',
     'RED', 'RED', 'WHITE', 'BLUE', 'WHITE', 'BLUE', 'BLUE', 'BLUE', 'WHITE'
 ]
+
+class ColorAnalyzer:
+    """Class to analyze color data from staff dress colors"""
+    
+    def __init__(self, color_data):
+        self.color_data = [color.upper().strip() for color in color_data]
+        self.color_counts = self._count_colors()
