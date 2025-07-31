@@ -206,7 +206,24 @@ def main():
     
     # Question 5 (BONUS)
     red_prob = analyzer.get_red_probability()
-    print(f"5. Probability of red color: {red_prob:.4f} ({red_prob * 100:.2f}%)")
+    print(f"5. Probability of red color: {red_prob:.4f}")
+
+    # Question 6 - PostgreSQL 
+    print(f"6. PostgreSQL save:")
+    
+    # Update these with your actual PostgreSQL connection details
+    db_params = {
+    'host': 'localhost',
+    'database': 'bincom_test',  
+    'user': 'postgres',
+    'password': 'your_new_password'
+}
+    
+    success = analyzer.save_to_postgresql(db_params)
+    if success:
+        print("Data successfully saved to PostgreSQL!")
+    else:
+        print("Failed to save to PostgreSQL")
 
 
 
