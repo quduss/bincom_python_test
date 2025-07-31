@@ -1,5 +1,6 @@
 import statistics
 import psycopg2
+import random
 
 
 ACTUAL_COLOR_DATA = [
@@ -149,3 +150,16 @@ class ColorAnalyzer:
             return recursive_search(arr, target, start, mid - 1)
         else:
             return recursive_search(arr, target, mid + 1, end)
+    
+    def generate_random_binary_and_convert():
+        """
+        Generates random 4 digits number of 0s and 1s and convert to base 10
+        """
+        # Generate random 4-digit binary number
+        binary_digits = [random.choice(['0', '1']) for _ in range(4)]
+        binary_string = ''.join(binary_digits)
+    
+        # Convert to base 10
+        decimal_value = int(binary_string, 2)
+    
+        return binary_string, decimal_value
