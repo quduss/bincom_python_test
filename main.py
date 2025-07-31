@@ -110,3 +110,11 @@ class ColorAnalyzer:
 
             # Clear existing data
             cur.execute("DELETE FROM color_frequencies;")
+
+            # Insert color frequencies
+            for color, frequency in self.color_counts.items():
+                insert_query = """
+                INSERT INTO color_frequencies (color, frequency) 
+                VALUES (%s, %s);
+                """
+                cur.execute(insert_query, (color, frequency))
