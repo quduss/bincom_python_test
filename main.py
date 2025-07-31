@@ -118,3 +118,10 @@ class ColorAnalyzer:
                 VALUES (%s, %s);
                 """
                 cur.execute(insert_query, (color, frequency))
+            
+            conn.commit()
+            cur.close()
+            conn.close()
+            
+            print("Color frequencies saved successfully to postgres database")
+            return True
