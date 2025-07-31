@@ -129,3 +129,23 @@ class ColorAnalyzer:
         except Exception as e:
             print("Error occured while saving to postgres: " + str(e))
             return False
+    
+    def recursive_search(arr, target, start=0, end=None):
+        """
+        Recursive search algorithm to search for the given number in a list
+        Returns the index of the target number, or -1 if not found.
+        """
+        if end is None:
+            end = len(arr) - 1
+    
+        if start > end:
+            return -1
+    
+        mid = (start + end) // 2
+    
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] > target:
+            return recursive_search(arr, target, start, mid - 1)
+        else:
+            return recursive_search(arr, target, mid + 1, end)
