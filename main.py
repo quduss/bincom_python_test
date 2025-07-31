@@ -107,3 +107,6 @@ class ColorAnalyzer:
             );
             """
             cur.execute(create_table_query)
+
+            # Clear existing data
+            cur.execute("DELETE FROM color_frequencies;")
